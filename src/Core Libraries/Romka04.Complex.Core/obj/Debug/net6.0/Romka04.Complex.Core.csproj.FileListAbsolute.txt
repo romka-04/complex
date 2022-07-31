@@ -1,0 +1,12 @@
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\bin\Debug\net6.0\Romka04.Complex.Core.deps.json
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\bin\Debug\net6.0\Romka04.Complex.Core.dll
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\bin\Debug\net6.0\Romka04.Complex.Core.pdb
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.csproj.AssemblyReference.cache
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.AssemblyInfoInputs.cache
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.AssemblyInfo.cs
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.csproj.CoreCompileInputs.cache
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.dll
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\refint\Romka04.Complex.Core.dll
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\Romka04.Complex.Core.pdb
+C:\Users\roman.REDHOME\source\repos\Complex\src\Core Libraries\Romka04.Complex.Core\obj\Debug\net6.0\ref\Romka04.Complex.Core.dll

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Core", "src\Core Libraries\Romka04.Complex.Core\Romka04.Complex.Core.csproj", "{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D4B4D22D-6A27-45F5-BB6D-D73FC2CFFDBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D07B508A-579B-4EF2-8368-45681D5D1AD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Libraries", "Core Libraries", "{4A30C09C-0919-4FA0-85CB-8247970E1CC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{DD1FDFE2-BF09-48F7-B331-ADB15D188015}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A721F8AC-BD56-4F0B-B682-CB7838E76E9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Libraries", "Core Libraries", "{466DEDB7-2E31-46E9-A4EE-929F393D4885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Core.Tests", "test\Core Libraries\Romka04.Complex.Core.Tests\Romka04.Complex.Core.Tests.csproj", "{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32} = {4A30C09C-0919-4FA0-85CB-8247970E1CC3}
+		{D07B508A-579B-4EF2-8368-45681D5D1AD6} = {D4B4D22D-6A27-45F5-BB6D-D73FC2CFFDBB}
+		{4A30C09C-0919-4FA0-85CB-8247970E1CC3} = {D4B4D22D-6A27-45F5-BB6D-D73FC2CFFDBB}
+		{DD1FDFE2-BF09-48F7-B331-ADB15D188015} = {D4B4D22D-6A27-45F5-BB6D-D73FC2CFFDBB}
+		{466DEDB7-2E31-46E9-A4EE-929F393D4885} = {A721F8AC-BD56-4F0B-B682-CB7838E76E9F}
+		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F} = {466DEDB7-2E31-46E9-A4EE-929F393D4885}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8621282C-42EB-4AAC-9C25-B6698673684F}
+	EndGlobalSection
+EndGlobal
