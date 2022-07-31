@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Core", "src\Core Libraries\Romka04.Complex.Core\Romka04.Complex.Core.csproj", "{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Core", "src\Core Libraries\Romka04.Complex.Core\Romka04.Complex.Core.csproj", "{E7000DE4-28C6-4666-BAD9-6D41AA9BBA32}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D4B4D22D-6A27-45F5-BB6D-D73FC2CFFDBB}"
 EndProject
@@ -17,7 +17,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A721F8AC-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Libraries", "Core Libraries", "{466DEDB7-2E31-46E9-A4EE-929F393D4885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Core.Tests", "test\Core Libraries\Romka04.Complex.Core.Tests\Romka04.Complex.Core.Tests.csproj", "{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Core.Tests", "test\Core Libraries\Romka04.Complex.Core.Tests\Romka04.Complex.Core.Tests.csproj", "{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Worker", "src\Workers\Romka04.Complex.Worker\Romka04.Complex.Worker.csproj", "{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{F60E3838-FF78-461C-BAF1-B328D2CB2706}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Worker.Tests", "test\Workers\Romka04.Complex.Worker.Tests\Romka04.Complex.Worker.Tests.csproj", "{571F9682-0589-4029-8678-40BC643D7CF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.WebApi", "src\Web\Romka04.Complex.WebApi\Romka04.Complex.WebApi.csproj", "{557A8F39-38AC-42FA-AE62-F688E0AC7041}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Models", "src\Web\Romka04.Complex.Models\Romka04.Complex.Models.csproj", "{55920B9C-A909-4E4C-9A8C-91D0C9520098}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Client", "src\Web\Romka04.Complex.Client\Romka04.Complex.Client.csproj", "{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5BCBAE3D-BFA7-4C92-8FF7-F894C0AF8478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +47,30 @@ Global
 		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557A8F39-38AC-42FA-AE62-F688E0AC7041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557A8F39-38AC-42FA-AE62-F688E0AC7041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557A8F39-38AC-42FA-AE62-F688E0AC7041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557A8F39-38AC-42FA-AE62-F688E0AC7041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55920B9C-A909-4E4C-9A8C-91D0C9520098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55920B9C-A909-4E4C-9A8C-91D0C9520098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55920B9C-A909-4E4C-9A8C-91D0C9520098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55920B9C-A909-4E4C-9A8C-91D0C9520098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCBAE3D-BFA7-4C92-8FF7-F894C0AF8478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCBAE3D-BFA7-4C92-8FF7-F894C0AF8478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCBAE3D-BFA7-4C92-8FF7-F894C0AF8478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCBAE3D-BFA7-4C92-8FF7-F894C0AF8478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +82,12 @@ Global
 		{DD1FDFE2-BF09-48F7-B331-ADB15D188015} = {D4B4D22D-6A27-45F5-BB6D-D73FC2CFFDBB}
 		{466DEDB7-2E31-46E9-A4EE-929F393D4885} = {A721F8AC-BD56-4F0B-B682-CB7838E76E9F}
 		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F} = {466DEDB7-2E31-46E9-A4EE-929F393D4885}
+		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B} = {DD1FDFE2-BF09-48F7-B331-ADB15D188015}
+		{F60E3838-FF78-461C-BAF1-B328D2CB2706} = {A721F8AC-BD56-4F0B-B682-CB7838E76E9F}
+		{571F9682-0589-4029-8678-40BC643D7CF1} = {F60E3838-FF78-461C-BAF1-B328D2CB2706}
+		{557A8F39-38AC-42FA-AE62-F688E0AC7041} = {D07B508A-579B-4EF2-8368-45681D5D1AD6}
+		{55920B9C-A909-4E4C-9A8C-91D0C9520098} = {D07B508A-579B-4EF2-8368-45681D5D1AD6}
+		{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA} = {D07B508A-579B-4EF2-8368-45681D5D1AD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8621282C-42EB-4AAC-9C25-B6698673684F}
