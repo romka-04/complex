@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
@@ -12,26 +13,30 @@ namespace Romka04.Complex.Worker
     internal class Worker
         : BackgroundService
     {
-        private readonly IOptions<RedisConfig> _redisOptions;
+        private readonly RedisOptions _redisOptions;
 
-        public Worker(IOptions<RedisConfig> redisOptions)
+        public Worker(IOptions<RedisOptions> options)
         {
-            _redisOptions = redisOptions ?? throw new ArgumentNullException(nameof(redisOptions));
+            if (null == options)
+                throw new ArgumentNullException(nameof(options));
+            _redisOptions = options.Value;
         }
 
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             using ConnectionMultiplexer redis =
-                ConnectionMultiplexer.Connect(_redisOptions.Value.Configuration);
+                await ConnectionMultiplexer.ConnectAsync(_redisOptions.GetConfiguration());
             ISubscriber subScriber = redis.GetSubscriber();
 
-            Console.WriteLine("Subscribe to the channel 'thecode - buzz - channel'");
+            Console.WriteLine($"Subscribe to the channel '{_redisOptions.PublishChannel}'");
 
-            return subScriber.SubscribeAsync(_redisOptions.Value.PublishChannel, (channel, message) =>
+            await subScriber.SubscribeAsync(_redisOptions.GetPublishChannel(), (channel, message) =>
             {
                 //Output received message
                 Console.WriteLine($"[{DateTime.Now:HH:mm:ss}]: {$"Message {message} received successfully"}");
             });
+
+            await Task.Delay(int.MaxValue, stoppingToken);
         }
     }
 }

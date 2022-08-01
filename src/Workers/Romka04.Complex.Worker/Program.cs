@@ -12,16 +12,17 @@ namespace Romka04.Complex.Worker
                 .ConfigureAppConfiguration((hostingContext, builder) =>
                 {
                     var env = hostingContext.HostingEnvironment;
-
+                    builder.SetBasePath(Directory.GetCurrentDirectory());
                     builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-                    builder.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
-
+               //     builder.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
                     builder.AddEnvironmentVariables();
                 })
-                .ConfigureServices(services =>
+                .ConfigureServices((context, services) =>
                 {
                     services.AddHostedService<Worker>();
-                    services.AddOptions<RedisConfig>();
+                    services.AddOptions<RedisOptions>()
+                        .Bind(context.Configuration.GetSection(RedisOptions.Name))
+                        ;
                 })
                 .Build();
 

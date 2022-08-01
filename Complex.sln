@@ -19,7 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Libraries", "Core Libr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Core.Tests", "test\Core Libraries\Romka04.Complex.Core.Tests\Romka04.Complex.Core.Tests.csproj", "{1C76F10D-BFA3-4EEC-A166-9BE00D73480F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Worker", "src\Workers\Romka04.Complex.Worker\Romka04.Complex.Worker.csproj", "{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Worker", "src\Workers\Romka04.Complex.Worker\Romka04.Complex.Worker.csproj", "{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{F60E3838-FF78-461C-BAF1-B328D2CB2706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Worker.Tests", "test\Workers\Romka04.Complex.Worker.Tests\Romka04.Complex.Worker.Tests.csproj", "{571F9682-0589-4029-8678-40BC643D7CF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571F9682-0589-4029-8678-40BC643D7CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +59,8 @@ Global
 		{466DEDB7-2E31-46E9-A4EE-929F393D4885} = {A721F8AC-BD56-4F0B-B682-CB7838E76E9F}
 		{1C76F10D-BFA3-4EEC-A166-9BE00D73480F} = {466DEDB7-2E31-46E9-A4EE-929F393D4885}
 		{1DAAB9B1-D8FA-41B4-AF7F-F2E85503ED9B} = {DD1FDFE2-BF09-48F7-B331-ADB15D188015}
+		{F60E3838-FF78-461C-BAF1-B328D2CB2706} = {A721F8AC-BD56-4F0B-B682-CB7838E76E9F}
+		{571F9682-0589-4029-8678-40BC643D7CF1} = {F60E3838-FF78-461C-BAF1-B328D2CB2706}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8621282C-42EB-4AAC-9C25-B6698673684F}
