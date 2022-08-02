@@ -2,6 +2,8 @@
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
 using FluentAssertions;
+using Microsoft.Extensions.Options;
+using Moq;
 using NUnit.Framework;
 using StackExchange.Redis;
 
@@ -21,11 +23,12 @@ public class WorkerTests
         try
         {
             await sut.StartAsync(CancellationToken.None);
+            await Task.Delay(1);
             await _fixture.PublishMessage(index);
             // act
-            await Task.Delay(TimeSpan.FromSeconds(10)); // give time to proceed
+            await Task.Delay(TimeSpan.FromSeconds(5)); // give time to proceed
             // assert
-            _fixture.AssertMessageUpdated();
+            await _fixture.AssertMessageUpdated(index, expected);
         }
         finally
         {
@@ -50,7 +53,7 @@ public class WorkerTests
     [SetUp]
     public void SetUp()
     {
-        _fixture = new WorkerTestsFixture();
+        _fixture = new WorkerTestsFixture(_testcontainers);
     }
 
     [TearDown]
@@ -69,14 +72,26 @@ public class WorkerTests
 
 internal class WorkerTestsFixture
 {
-    public RedisOptions CreateRadisOptions()
+    private readonly string _publishChannel = Guid.NewGuid().ToString("N");
+    private readonly RedisTestcontainer _redisTestcontainer;
+
+    public WorkerTestsFixture(RedisTestcontainer redisTestcontainer)
     {
-        throw new NotImplementedException();
+        _redisTestcontainer = redisTestcontainer
+            ?? throw new ArgumentNullException(nameof(redisTestcontainer));
     }
 
     public Worker CreateSut()
     {
-        throw new NotImplementedException();
+        var redisOptions = new RedisOptions
+        {
+            Configuration  = _redisTestcontainer.ConnectionString,
+            PublishChannel = _publishChannel 
+        };
+
+        var opt = Mock.Of<IOptions<RedisOptions>>(x => x.Value == redisOptions);
+
+        return new Worker(opt);
     }
 
     public Task PublishMessage(int message)
@@ -84,11 +99,34 @@ internal class WorkerTestsFixture
 
     public async Task PublishMessage(string message)
     {
-        throw new NotImplementedException();
+        using ConnectionMultiplexer redis =
+            await CreateConnectAsync();
+        ISubscriber subScriber = redis.GetSubscriber();
+
+        await subScriber.PublishAsync(_publishChannel, message, CommandFlags.FireAndForget);
+
+        await TestContext.Out.WriteLineAsync($"Message '{message}' successfully sent to '{_publishChannel}'");
     }
 
-    public async Task AssertMessageUpdated()
+    private async Task<ConnectionMultiplexer> CreateConnectAsync()
     {
-        throw new NotImplementedException();
+        return await ConnectionMultiplexer.ConnectAsync(_redisTestcontainer.ConnectionString);
+    }
+
+    public Task AssertMessageUpdated(int message, int expected)
+        => AssertMessageUpdated(message.ToString(), expected.ToString());
+
+    public async Task AssertMessageUpdated(string message, string expected)
+    {
+        using ConnectionMultiplexer redis =
+            await CreateConnectAsync();
+
+        IDatabase db = redis.GetDatabase();
+        var hashSet = db.HashGet("values", message);
+
+        hashSet.HasValue.Should().BeTrue();
+
+        var actual = hashSet.ToString();
+        actual.Should().Be(expected);
     }
 }

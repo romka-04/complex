@@ -24,7 +24,12 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="$(AssemblyName).Tests"/>
+		<InternalsVisibleTo Include="$(AssemblyName).Tests" />
+		<InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Core Libraries\Romka04.Complex.Core\Romka04.Complex.Core.csproj" />
 	</ItemGroup>
 
 </Project>
