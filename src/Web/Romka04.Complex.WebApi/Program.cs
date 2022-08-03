@@ -1,12 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using Romka04.Complex.Core;
 using MiniValidation;
 using Romka04.Complex.Models;
+using Romka04.Complex.WebApi.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddDbContext<DatabaseContext>((provider, options) =>
+{
+    var connStr = provider.GetService<IConfiguration>().GetConnectionString("pgDatabase");
+    options.UseNpgsql(connStr);
+});
 builder.Services.AddEndpointsApiExplorer();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
