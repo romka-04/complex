@@ -13,4 +13,11 @@ public sealed class DatabaseContext
     {
         this.Database.EnsureCreated();
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Seed();
+
+        base.OnModelCreating(modelBuilder);
+    }
 }
