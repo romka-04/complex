@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  postgres:
+    environment:
+      - POSTGRES_PASSWORD=romanroman2
+
+  romka04.complex.worker:
+    environment:
+      - "redis__configuration:redis:6379"
+      - "redis__publishChannel:publishChannel2"
+
+  romka04.complex.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - "redis__configuration:redis:6379"
+      - "redis__publishChannel:publishChannel2"
+      - "connectionStrings__pgDatabase:Host=postgres;Port=5432;Database=ValuesDb;Username=roman2;Password=romanroman2"
+    ports:
+      - "3051:80"
+      - "3052:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

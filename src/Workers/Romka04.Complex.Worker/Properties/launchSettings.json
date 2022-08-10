@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Romka04.Complex.Worker": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
