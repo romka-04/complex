@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.WebApi", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Models", "src\Web\Romka04.Complex.Models\Romka04.Complex.Models.csproj", "{55920B9C-A909-4E4C-9A8C-91D0C9520098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romka04.Complex.Client", "src\Web\Romka04.Complex.Client\Romka04.Complex.Client.csproj", "{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Romka04.Complex.Client", "src\Web\Romka04.Complex.Client\Romka04.Complex.Client.csproj", "{0094F5E6-51CA-4E70-9CF0-C5EF4A866DCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

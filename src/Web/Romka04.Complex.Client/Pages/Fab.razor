@@ -1,0 +1,83 @@
+﻿@page "/"
+@using Romka04.Complex.Models
+@inject HttpClient HttpClient
+
+<h3>Fab</h3>
+
+<EditForm Model="@_model" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <Blazorise.ValidationSummary />
+    
+    <Field>
+        <FieldLabel>Enter your index:</FieldLabel>
+        <InputNumber id="name" @bind-Value="@_model.Index" />
+    </Field>
+    <Button Color="Color.Primary" Type="ButtonType.Submit">Submit</Button>
+</EditForm>
+<hr/>
+<Field>
+    <h3>Indexes I have seen:</h3>
+    @foreach (var item in _seenIndexes)
+    {
+        <code>@item.Index</code><span>; </span>
+    }
+</Field>
+<hr/>
+<Field>
+    <h3>Calculated Values:</h3>
+    @foreach (var item in _calcValues)
+    {
+        <code><span>index:</span><span>@item.Index</span><span> value:</span><span>@item.Value</span></code><br/>
+    }
+</Field>
+
+
+@code {
+    // ReSharper disable once FieldCanBeMadeReadOnly.Local
+    private FabRequest _model = new();
+    private FabValue? _fabValue;
+
+    private List<FabValue> _seenIndexes = new();
+    private List<FabPair> _calcValues = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var t1 = HttpClient.GetFromJsonAsync<FabValue[]>("values/all");
+            var t2 = HttpClient.GetFromJsonAsync<FabPair[]>("values/current");
+
+            await TaskExt.WhenAll(t1, t2);
+
+            Console.WriteLine($"seen indexes: {t1.Result.Length}");
+            Console.WriteLine($"calc values: {t2.Result.Length}");
+
+            _seenIndexes.AddRange(t1.Result);
+            _calcValues.AddRange(t2.Result);
+
+            StateHasChanged();
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        const string uri = @"values";
+        using var response = await HttpClient.PostAsJsonAsync(uri, _model);
+        if (response.IsSuccessStatusCode)
+        {
+            var data = await response.Content.ReadFromJsonAsync<FabResponse>();
+            if (data is not null)
+            {
+                _calcValues.Insert(0, new FabPair(data.Index, data.Value));
+                _seenIndexes.Insert(0, new FabValue(data.Index));
+                _model.Index = null;
+                StateHasChanged();
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Error: {await response.Content.ReadAsStringAsync()}");
+        }
+    }
+}
