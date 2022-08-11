@@ -5,10 +5,10 @@ services:
   - docker
 
 before_install:
-  - docker build --tag romka04/Romka04.Complex.Core.Tests -f '.\test\Core Libraries\Romka04.Complex.Core.Tests\Dockerfile' . 
+  - docker build -t romka04/Romka04.Complex.Core.Tests -f '.\test\Core Libraries\Romka04.Complex.Core.Tests\Dockerfile' . 
 
 script:
-  - docker run romka04/Romka04.Complex.Core.Tests -- --coverage --watchAll=false
+  - docker run romka04/Romka04.Complex.Core.Tests
  
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "success"
