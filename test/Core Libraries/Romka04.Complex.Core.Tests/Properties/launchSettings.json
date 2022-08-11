@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Romka04.Complex.Core.Tests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
