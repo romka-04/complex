@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+  
+  redis:
+    image: 'redis:latest'
+    restart: always
+  
+  romka04.complex.worker:
+    image: ${DOCKER_REGISTRY-}romka04complexworker
+    build:
+      context: .
+      dockerfile: src/Workers/Romka04.Complex.Worker/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+
+  romka04.complex.webapi:
+    image: ${DOCKER_REGISTRY-}romka04complexwebapi
+    build:
+      context: .
+      dockerfile: src/Web/Romka04.Complex.WebApi/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+      - romka04.complex.worker
