@@ -5,10 +5,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t romka04/Romka04-Complex-Core-Tests -f '.\test\Core Libraries\Romka04.Complex.Core.Tests\Dockerfile' . 
+  - docker build -t romka04/romka04-complex-core-tests -f '.\test\Core Libraries\Romka04.Complex.Core.Tests\Dockerfile' . 
 
 script:
-  - docker run romka04/Romka04-Complex-Core-Tests
+  - docker run romka04/romka04-complex-core-tests
  
 after_success:
   - echo "success"
