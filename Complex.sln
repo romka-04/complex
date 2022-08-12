@@ -38,6 +38,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.travis.yml = .travis.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{279D1AFD-B377-406B-A279-0DBEEBE5C290}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\client-node-port.yml = k8s\client-node-port.yml
+		k8s\client-pod.yml = k8s\client-pod.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
