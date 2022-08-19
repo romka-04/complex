@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: client-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       component: web
@@ -14,7 +14,21 @@ spec:
     spec:
       containers:
         - name: client
-          image: romka04/romka04-complex-webapi
+          image: romka04/romka04-complex-webapi:v2
           ports:
             - containerPort: 80
             - containerPort: 443
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: ASPNETCORE_URLS
+              value: https://+:443;http://+:80
+            - name: redis__configuration
+              value: redis-cluster-ip-service
+            - name: redis__publishChannel
+              value: publishChannel2
+            - name: connectionStrings__pgDatabase
+              valueFrom:
+                secretKeyRef:
+                  name: pg-conn-str
+                  key: connectionString__pgDatabase
