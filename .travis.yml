@@ -16,7 +16,7 @@ script:
  
 after_success:
   - docker build -t romka04/romka04-complex-worker:v1 -f './src/Workers/Romka04.Complex.Worker/Dockerfile' .
-  - docker build -t romka04/romka04-complex-webapi:v2 -f './src/Web/Romka04.Complex.WebApi/Dockerfile' .
+  - docker build -t romka04/romka04-complex-webapi:v3 -f './src/Web/Romka04.Complex.WebApi/Dockerfile' .
    # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
