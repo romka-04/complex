@@ -17,12 +17,11 @@ spec:
           image: romka04/romka04-complex-webapi:v2
           ports:
             - containerPort: 80
-            - containerPort: 443
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: Production
             - name: ASPNETCORE_URLS
-              value: https://+:443;http://+:80
+              value: http://+:80
             - name: redis__configuration
               value: redis-cluster-ip-service
             - name: redis__publishChannel
