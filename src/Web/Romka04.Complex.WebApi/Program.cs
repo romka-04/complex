@@ -13,13 +13,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<DatabaseContext>((provider, options) =>
 {
+    var logger = provider.GetService<ILogger<Program>>();
     var connStr = provider.GetService<IConfiguration>().GetConnectionString("pgDatabase");
+    logger?.LogInformation($"ConnStr: {connStr}");
     options.UseNpgsql(connStr);
 });
 builder.Services.AddOptions<RedisOptions>().Bind(builder.Configuration.GetSection(RedisOptions.Name));
 builder.Services.AddEndpointsApiExplorer();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen();
+builder.Services.AddLogging(config =>
+{
+    config.SetMinimumLevel(LogLevel.Information);
+    config.AddConsole();
+});
 
 var app = builder.Build();
 
