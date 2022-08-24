@@ -21,4 +21,4 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push romka04/romka04-complex-worker:v1
-  - docker push romka04/romka04-complex-webapi:v2
+  - docker push romka04/romka04-complex-webapi:v3
