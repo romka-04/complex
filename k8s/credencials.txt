@@ -1,0 +1,5 @@
+kubectl create secret generic pg-conn-str --from-literal=connectionString__pgDatabase="Host=postgres-cluster-ip-service;Port=5432;Database=ValuesDb;Username=roman;Password=romanroman2"
+
+kubectl create secret generic pg-psw --from-literal=POSTGRES_USER=roman --from-literal=POSTGRES_PASSWORD=romanroman2 --from-literal=POSTGRES_DB=ValuesDb
+
+
