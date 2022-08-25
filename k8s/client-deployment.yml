@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: romka04/romka04-complex-webapi:v3
+          image: romka04/romka04-complex-webapi
           ports:
             - containerPort: 80
           env:
