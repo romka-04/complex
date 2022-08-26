@@ -15,7 +15,7 @@ env:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_3f865f5f05c6_key -iv $encrypted_3f865f5f05c6_iv -in complex-k8s-360513-1090ae81cf34.json.enc -out ./app/complex-k8s-360513-1090ae81cf34.json -d
+  - openssl aes-256-cbc -K $encrypted_3f865f5f05c6_key -iv $encrypted_3f865f5f05c6_iv -in complex-k8s-360513-1090ae81cf34.json.enc -out complex-k8s-360513-1090ae81cf34.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
