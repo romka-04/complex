@@ -1,0 +1,14 @@
+-- run docker
+docker run -it -v "c:\Users\roman.REDHOME\source\repos\TEST\TravisWorkfolder\project:/app" ruby:alpine sh
+
+-- install travis
+get install travis
+
+-- login to account
+-- need to generate token in github->account->development settings->personal access token
+-- permissions: https://stackoverflow.com/a/59992012/2903893
+-- "--pro" redirect travis to .com instead or .org by default
+travis login --pro -X --github-token {github_token}
+
+-- encrypt file
+travis encrypt-file {file_name} --pro -r {repo_name_case_sencetive}

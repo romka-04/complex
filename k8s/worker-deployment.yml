@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: worker
+  template:
+    metadata:
+      labels:
+       component: worker
+    spec:
+      containers:
+        - name: worker
+          image: romka04/romka04-complex-worker
+          env: 
+            - name: redis__configuration
+              value: redis-cluster-ip-service
+            - name: redis__publishChannel
+              value: publishChannel2

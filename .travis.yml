@@ -4,21 +4,44 @@ language: generic
 branches:
   only:
     - main
+    - "feature/google-cloud-travis-ci"
 
 services:
   - docker
 
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
 before_install:
+  - openssl aes-256-cbc -K $encrypted_3f865f5f05c6_key -iv $encrypted_3f865f5f05c6_iv -in complex-k8s-360513-1090ae81cf34.json.enc -out complex-k8s-360513-1090ae81cf34.json -d
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - gcloud auth activate-service-account --key-file complex-k8s-360513-1090ae81cf34.json
+  - gcloud config set project complex-k8s-360513
+  - gcloud config set compute/zone europe-central2
+  - gcloud container clusters get-credentials autopilot-cluster-1
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t romka04/romka04-complex-core-tests -f './test/Core Libraries/Romka04.Complex.Core.Tests/Dockerfile' . 
 
 script:
   - docker run romka04/romka04-complex-core-tests
  
-after_success:
-  - docker build -t romka04/romka04-complex-worker:v1 -f './src/Workers/Romka04.Complex.Worker/Dockerfile' .
-  - docker build -t romka04/romka04-complex-webapi:v3 -f './src/Web/Romka04.Complex.WebApi/Dockerfile' .
-   # Log in to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Take those images and push them to docker hub
-  - docker push romka04/romka04-complex-worker:v1
-  - docker push romka04/romka04-complex-webapi:v3
+#after_success:
+#  - docker build -t romka04/romka04-complex-worker:v1 -f './src/Workers/Romka04.Complex.Worker/Dockerfile' .
+#  - docker build -t romka04/romka04-complex-webapi:v2 -f './src/Web/Romka04.Complex.WebApi/Dockerfile' .
+#   # Log in to the docker CLI
+#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+#  # Take those images and push them to docker hub
+#  - docker push romka04/romka04-complex-worker:v1
+#  - docker push romka04/romka04-complex-webapi:v3
+#  on:
+#    branch: master
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
