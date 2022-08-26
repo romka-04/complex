@@ -21,7 +21,7 @@ before_install:
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file complex-k8s-360513-1090ae81cf34.json
   - gcloud config set project complex-k8s-360513
-  - gcloud config set compute/zone europe-central2-a
+  - gcloud config set compute/zone europe-central2
   - gcloud container clusters get-credentials autopilot-cluster-1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t romka04/romka04-complex-core-tests -f './test/Core Libraries/Romka04.Complex.Core.Tests/Dockerfile' . 
